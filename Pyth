@@ -1,0 +1,57 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create sports performance data using Pandas
+data = pd.DataFrame({
+    'Player': ['Rohit', 'Virat', 'Dhoni'],
+    'Matches': [15, 18, 12],
+    'Runs': [620, 710, 480],
+    'Wickets': [2, 1, 5],
+    'Fitness_Score': [85, 90, 88]   # out of 100
+})
+
+# Performance calculations using NumPy
+data['Average_Runs'] = data['Runs'] / data['Matches']
+
+# Average statistics
+avg_runs = np.mean(data['Runs'])
+avg_wickets = np.mean(data['Wickets'])
+avg_fitness = np.mean(data['Fitness_Score'])
+
+# Average Runs Bar Chart
+plt.figure()
+plt.bar(data['Player'], data['Average_Runs'])
+plt.xlabel("Player Name")
+plt.ylabel("Average Runs")
+plt.title("Average Runs per Match (Player Wise)")
+plt.show()
+
+# Total Runs Line Graph
+plt.figure()
+plt.plot(data['Player'], data['Runs'], marker='o')
+plt.xlabel("Player Name")
+plt.ylabel("Total Runs")
+plt.title("Runs Analysis (Player Wise)")
+plt.show()
+
+# Wickets Bar Chart
+plt.figure()
+plt.bar(data['Player'], data['Wickets'])
+plt.xlabel("Player Name")
+plt.ylabel("Total Wickets")
+plt.title("Wicket Analysis (Player Wise)")
+plt.show()
+
+# Fitness Score Line Graph
+plt.figure()
+plt.plot(data['Player'], data['Fitness_Score'], marker='o')
+plt.xlabel("Player Name")
+plt.ylabel("Fitness Score")
+plt.title("Fitness Level Monitoring (Player Wise)")
+plt.show()
+
+# Display average values
+print("Average Runs:", avg_runs)
+print("Average Wickets:", avg_wickets)
+print("Average Fitness Score:", avg_fitness)
